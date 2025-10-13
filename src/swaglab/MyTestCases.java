@@ -20,7 +20,7 @@ public class MyTestCases
         driver = new ChromeDriver();
         
         // Set an implicit wait time (wait up to 5 seconds when locating elements)
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         
         // Maximize the browser window
         driver.manage().window().maximize();
@@ -42,10 +42,12 @@ public class MyTestCases
     	String Password = "secret_sauce";
     	
         // Enter username
-    	WebElement UserNameInput =  driver.findElement(By.id("user-name"));
+    	//WebElement UserNameInput =  driver.findElement(By.cssSelector("#user-name"));
+    	WebElement UserNameInput =  driver.findElement(By.xpath("//input[@data-test=\'username']"));
+
         UserNameInput.sendKeys(UserName);
         // Enter password
-        WebElement PasswordInput = driver.findElement(By.id("password"));
+        WebElement PasswordInput = driver.findElement(By.xpath("//input[@data-test=\'password']"));
         PasswordInput.sendKeys(Password);
         // Click the login button
         WebElement LoginButton = driver.findElement(By.id("login-button"));
@@ -108,5 +110,7 @@ public class MyTestCases
         
         
         driver.navigate().refresh();
+        
+        driver.findElement(By.cssSelector(".btn.btn_primary.btn_small")).click();
     }
 }

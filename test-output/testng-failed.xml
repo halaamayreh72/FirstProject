@@ -6,6 +6,8 @@
       <class name="swaglab.MyTestCases">
         <methods>
           <include name="CheckoutProcess"/>
+          <include name="login"/>
+          <include name="AddItem"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- swaglab.MyTestCases -->
