@@ -5,7 +5,8 @@
     <classes>
       <class name="swaglab.AddRandomITem">
         <methods>
-          <include name="AddRandomItem"/>
+          <include name="RandomItem"/>
+          <include name="LoginWithNormalUser"/>
           <include name="MySetup"/>
         </methods>
       </class> <!-- swaglab.AddRandomITem -->

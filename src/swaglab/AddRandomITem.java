@@ -18,21 +18,21 @@ public class AddRandomITem
     
 	WebDriver driver = new EdgeDriver();
 	String theURL ="https://www.saucedemo.com/";
-	
+	Random rand = new Random();
+
 	
 	@BeforeTest
 	public void MySetup ()
 	
 	{
             driver.get(theURL);
-        // Set an implicit wait time (wait up to 5 seconds when locating elements)
+        // Set an implicit wait time (wait up to 3 seconds when locating elements)
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         
         // Maximize the browser window
         driver.manage().window().maximize();
         
         
-		    	
 		     
      }
 		
@@ -67,11 +67,10 @@ public class AddRandomITem
 	}
 	
 	
-	@Test(priority=2)
+	@Test(priority=2 , enabled = false)
 	public void AddRandomItem() 
 	
 	{
-		Random rand = new Random();
 		int RandomItem1 =rand.nextInt(6);
 		int RandomItem2;
 		if (RandomItem1==5) {
@@ -94,6 +93,31 @@ public class AddRandomITem
 	     System.out.println(RandomItem2);
 	}
 	
+	@Test (priority=3)
+	public void RandomItem()
+	
+	
+	{
+		
+		
+		int RandomItem1=rand.nextInt(2); //0 or 1
+		int RandomItem2=rand.nextInt(2,4); // 2 or 3
+		int RandomItem3=rand.nextInt(4,6); // 4 or 5
+        System.out.println(RandomItem1);
+        System.out.println(RandomItem2);
+        System.out.println(RandomItem3);
+
+		List <WebElement> AddToCartButton= driver.findElements(By.className("btn"));
+		AddToCartButton.get(RandomItem1).click();
+		AddToCartButton.get(RandomItem2).click();
+		AddToCartButton.get(RandomItem3).click();
+
+
+		
+		
+		
+		
+	}
 	
 
 }
